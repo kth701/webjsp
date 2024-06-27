@@ -19,10 +19,8 @@ public class MemberDAOServiceImpl implements MemberDAOService{
 	}
 
 	@Override
-	public int registerMember(MemberVO memberVO) {
-		
-		 int result =  result = dao.registerMember(memberVO);
-	 
+	public int registerMember(MemberVO memberVO) {	
+		int result =  result = dao.registerMember(memberVO);
 		return result;
 	}
 

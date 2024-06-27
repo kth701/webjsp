@@ -90,13 +90,13 @@ public class MemberDAOImpl implements MemberDAO {
 	// 회원 등록
 	public int registerMember(MemberVO memberVO) {
 		int result = 0;
-		
+		System.out.println("registerMember:"+memberVO);
 		String sql = "";
 		try {
 			conn = dataSource.getConnection();
-			sql = "select into t_member (id, pwd, name, email) values (?,?,?,?)";
+			sql = "insert into t_member (id, pwd, name, email) values (?,?,?,?)";
 			
-			pstmt = conn. prepareStatement(sql);
+			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, memberVO.getId());
 			pstmt.setString(2, memberVO.getPwd());
 			pstmt.setString(3, memberVO.getName());
@@ -105,7 +105,9 @@ public class MemberDAOImpl implements MemberDAO {
 			result = pstmt.executeUpdate();
 			pstmt.close();
 			
-		} catch (Exception e) {}
+			System.out.println("insert after: "+result);
+			
+		} catch (Exception e) {System.out.println(e.getMessage());}
 		
 		return result;
 	}
