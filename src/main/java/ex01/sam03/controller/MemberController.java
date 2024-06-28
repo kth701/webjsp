@@ -10,12 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import ex01.sam03.dao.MemberDAOImpl;
 import ex01.sam03.service.MemberDAOServiceImpl;
 import ex01.sam03.vo.MemberVO;
 
 @SuppressWarnings("serial")
-@WebServlet("/member")
+@WebServlet("/member/*")
 public class MemberController extends HttpServlet{
 	
 
@@ -33,14 +32,39 @@ public class MemberController extends HttpServlet{
 		// controller -> service에게 요청 -> dao에게 요청
 		MemberDAOServiceImpl memberDAOServiceImpl = new MemberDAOServiceImpl();
 		
+		req.setCharacterEncoding("utf-8");
+		String action = req.getPathInfo();
+		
+		System.out.println("--- action ");
+		System.out.println(action);
+		
+		
+		if (action != null && action.equals("/addMember.do")) {
+			System.out.println(" 회원가입하는 dao요청하기");
+			
+			String id = req.getParameter("user_id");
+			String pw = req.getParameter("user_pw");
+			String name = req.getParameter("user_name");
+			String email = req.getParameter("user_email");
+			
+			MemberVO vo = MemberVO.builder()
+					.id(id).pwd(pw).name(name).email(email)
+					.build();
+			
+			int result = memberDAOServiceImpl.registerMember(vo);
+			
+		} else if (action != null && action.equals("/delMember.do")) {
+			System.out.println(" 회원탈퇴하는 dao요청하기");
+			
+			
+		} else if (action != null && action.equals("/modMember.do")) {
+			System.out.println(" 회원수정하는 dao요청하기");
+			
+			
+		}
+
 		List<MemberVO> list = memberDAOServiceImpl.listMembers();
-		list.stream().forEach( member -> {
-			System.out.println(member.getId());
-			System.out.println(member.getPwd());
-			System.out.println(member.getName());
-			System.out.println(member.getEmail());
-			System.out.println(member.getJoinDate());
-		});
+
 		
 		
 		// 클라이언트에 응답
