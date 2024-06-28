@@ -67,7 +67,7 @@
 	
 	// 정상이면 처리
 	frmMember.method = "post";
-	frmMember.action ="/webjsp/member/addMember.do";
+	frmMember.action ="/webjsp/product/addMember.do";
 	frmMember.submit();
 	
 }
