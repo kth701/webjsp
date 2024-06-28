@@ -48,13 +48,15 @@ public class ContextFileServlet extends HttpServlet {
 		writer.print(menu_member+"<br/>"+menu_order+"<br/>"+menu_goods);
 		writer.print("</body></html>");
 		
-		
-		
-		
-		
-		
-
-		
+	
 		
 	}
 }
+
+
+/*
+ * ServleConfig
+ *  : ServleContext객체를 얻는 기능
+ *  : 서블릿에 대한 초기화 작업 기능
+ * 
+ */

@@ -1,4 +1,4 @@
-package ex01.sam01;
+package ex01.sam04;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -9,23 +9,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @SuppressWarnings("serial")
-public class FirstServlet extends HttpServlet{
-	@Override
-	public void init() throws ServletException {
-		// 서블릿 요청시 맨 처음 한번만 호출
-		System.out.println("init() 메서드 호출");
-	}
+public class InitParamWebServlet extends HttpServlet {
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// 서블릿 요청시 매번호출 : get방식으로 요청시
 		System.out.println("doGet() 메서드 호출");
 		
 		
-	}
-	@Override
-	public void destroy() {
-		// 서블릿이 기능을 수행하고 메모리에서 소멸될 때 호출
-		System.out.println("destory() 메서드 호출");
+		resp.setContentType("text/html; charset=utf-8");
+		PrintWriter writer = resp.getWriter();
+		
+		String email = getInitParameter("email");
+		String tel = getInitParameter("tel");
+		
+		writer.print("<html><body>");
+		writer.print("<h1>ServletConfig web.xml 구조: 매개변수 데이터 가져오기</h1>");
+		writer.print(email+"<br/>"+tel+"<br/>");
+		writer.print("</body></html>");
 	}
 
 }

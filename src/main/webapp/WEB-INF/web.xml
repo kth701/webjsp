@@ -23,6 +23,26 @@
   	<servlet-name>login</servlet-name>
   	<servlet-class>ex01.sam02.LoginServlet</servlet-class>
   </servlet>
+  <!--  web.xml에서 load-on-startup  -->
+<!--   <servlet>
+  	<servlet-name>loadconfig</servlet-name>
+  	<servlet-class>ex01.sam04.LoadAppConfig</servlet-class>
+  	<load-on-startup>1</load-on-startup>
+  </servlet> -->
+  
+  <!--  서블릿 매개변수 설정 -->
+   <servlet>
+  	<servlet-name>sinit3</servlet-name>
+  	<servlet-class>ex01.sam04.InitParamWebServlet</servlet-class>
+  	<init-param>
+  		<param-name>email</param-name>
+  		<param-value>dong@gmail.com</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>tel</param-name>
+  		<param-value>010-3333-4444</param-value>
+  	</init-param>
+  </servlet>
   
   <servlet-mapping>
   	<servlet-name>aaa</servlet-name>
@@ -32,7 +52,16 @@
   	<servlet-name>bbb</servlet-name>
   	<url-pattern>/second</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>sinit3</servlet-name>
+  	<url-pattern>/sInit3</url-pattern>
+  </servlet-mapping>
   
+  <!--  web.xml에서 load-on-startup  -->
+<!--   <servlet-mapping>
+  	<servlet-name>loadconfig</servlet-name>
+  	<url-pattern>/LoadConfig</url-pattern>
+  </servlet-mapping> -->
  
  <context-param>
  	<param-name>menu_member</param-name>
