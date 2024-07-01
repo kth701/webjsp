@@ -24,9 +24,13 @@ public class SetServletScope extends HttpServlet {
 		String url = req.getRequestURL().toString();
 		String mapping = req.getServletPath();
 		String uri = req.getRequestURI();
-		System.out.println("-> request 팬턴");
 		
-		
+		System.out.println("-> request 패턴");
+		System.out.println("컨텍스트이름: "+context);
+		System.out.println("전체경로: "+url);
+		System.out.println("매핑이름: "+mapping);
+		System.out.println("URI: "+uri);
+	
 		//------------------------------//
 		
 		
