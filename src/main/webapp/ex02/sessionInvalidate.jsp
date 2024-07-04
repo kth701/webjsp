@@ -4,6 +4,9 @@
 <%
 	String name = (String) session.getAttribute("name");
 	String id = (String) session.getAttribute("id");
+	
+	String address = (String) application.getAttribute("address");
+	String age = (String) request.getAttribute("age");
 %>
 
 <!DOCTYPE html>
@@ -21,6 +24,11 @@
 	이름: <%= name %><br>
 	아이디: <%= id %>
 	</div>
+	
+	<div>
+		<h3>application(ServletContext): <%=address %></h3>
+	</div>
+	<h3>request(ServletRequest): <%= age %></h3>
 	
 
 

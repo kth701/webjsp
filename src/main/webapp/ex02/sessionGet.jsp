@@ -4,6 +4,10 @@
 <%
 	String name = (String) session.getAttribute("name");
 	String id = (String) session.getAttribute("id");
+	
+	String address = (String) application.getAttribute("address");
+	
+	String age = (String) request.getAttribute("age");
 %>
 
 <!DOCTYPE html>
@@ -21,8 +25,18 @@
 	이름: <%= name %><br>
 	아이디: <%= id %>
 	</div>
+	
 	<% session.invalidate();  %>
 	<a href="/webjsp/ex02/sessionInvalidate.jsp">세션값 삭제후</a>
+	
+	<div>
+		<h3>application(ServletContext): <%=address %></h3>
+	</div>
+	<h3>request(ServletRequest): <%= age %></h3>
+	<hr>
+	<div>
+		<h1><% out.println("나이:"+age); %></h1>
+	</div>
 
 </body>
 </html>

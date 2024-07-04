@@ -13,7 +13,7 @@
 <body>
 	<h1> session 테스트</h1>
 	<div>
-		isNew() : <%= session.isNew() %><br>
+		isNew() : <%=session.isNew() %><br>
 		생성시간: <%=session.getCreationTime() %><br>
 		최종 접속 시간: <%= session.getLastAccessedTime() %><br>
 		세션 ID: <%= session.getId() %><br>

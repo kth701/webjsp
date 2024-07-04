@@ -82,5 +82,16 @@
  	<session-timeout>10</session-timeout>
  </session-config>
  -->
+ 
+ <!--  에러 페이지 처리  -->
+<!--  
+<error-page>
+ 	<error-code>404</error-code>
+ 	<location>/error/error_404.jsp</location>
+ </error-page>
+ <error-page>
+ 	<error-code>500</error-code>
+ 	<location>/error/error_500.jsp</location>
+ </error-page>  -->
   
 </web-app>
