@@ -62,6 +62,14 @@
 	HTML 영역 : 값 출력 <%= %>
 	
 	// JSP페이지 내장 객체
-	request, response, session, pageContext, out, application, config, page, exception 
+	request 		-> HttpServletRequest request
+	response		-> HttpServletResponse response
+	session			-> HttpSession session
+	pageContext		-> PageContext pageContext
+	out				-> JspWriter out
+	application		-> ServletContext application
+	config			-> ServletConfig config
+	page			-> Object this
+	exception 		-> Exception exception
 
  --%>
