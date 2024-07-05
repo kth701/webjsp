@@ -23,7 +23,8 @@ request.setAttribute("memberList", memberList);
 request.setAttribute("age", 10);
 session.setAttribute("age", 20);
 application.setAttribute("age", 30);
-//pageContext.setAttribute("age", 40);
+
+pageContext.setAttribute("age", 40);// 페이지를 벗어나면 소멸
 
 
 %>
@@ -36,7 +37,11 @@ application.setAttribute("age", 30);
 <body>
 	<h1>EL 포워딩 테스트(Collection)</h1>
 	<hr>
-	<jsp:forward page="el_request_result.jsp"></jsp:forward>
+	<h3>같은 페이지 내에서 스코프 우선 순위</h3>
+	page > request > session > application<br>
+	<%-- ${age } --%>
+	<hr>
+	<jsp:forward page="el_request_result.jsp" />
 	
 	
 </body>
