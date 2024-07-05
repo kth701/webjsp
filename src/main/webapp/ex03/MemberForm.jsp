@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
+	isELIgnored="false"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -11,7 +12,8 @@
 <body>
 
 	<div class="container">
-		<form action="memberRegister.jsp" method="get">
+		<!-- <form action="memberRegister.jsp" method="get"> -->
+		<form action="/webjsp/ex04/el_request_result.jsp" method="get">
 				아이디: 
 				<input type="text" 		name="user_id" class="form-control"><br>
 				비밀번호: 

@@ -8,9 +8,10 @@
 	String email = request.getParameter("user_email");
 	
 	System.out.println(id);
-
-	//MemberBean member = new MemberBean();
-	//member.setId(id); 
+	
+	/* MemberBean member1 = new MemberBean();
+	member1.setId(id); 
+	member1.getId(); */
 %>
 
 
@@ -28,6 +29,11 @@
 	<jsp:setProperty property="pwd" 	name="member" value="<%= pw %>" />
 	<jsp:setProperty property="name" 	name="member" value="<%= name %>" />
 	<jsp:setProperty property="email" 	name="member" value="<%= email %>"/> 
+	
+	<%-- 
+		전송된 매개변수 이름과 빈 속성이름이 동일한 경우 자동으로 설정
+		<jsp:setProperty property="*" name="member"/>
+	 --%>
 	
 	<div class="container">
 		<h1>useBean 테스트</h1><hr>
