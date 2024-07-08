@@ -140,18 +140,45 @@
 					
 					let jsonMembers = JSON.parse(data) ;
 					console.log(jsonMembers.members);
+
+					let html_out = `
+						<table class="table  table-bordered">
+						  <thead>
+						    <tr>
+						      <th scope="col">이름</th>
+						      <th scope="col">나이</th>
+						      <th scope="col">성별</th>
+						      <th scope="col">닉네임</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+					`;
+					
 					
 					for (let i=0; i<jsonMembers.members.length;i++ ){
 						
-						console.log("--------")
-						
+					/*  console.log("--------")
 						console.log(jsonMembers.members[i].name)
 						console.log(jsonMembers.members[i].age)
 						console.log(jsonMembers.members[i].gender)
-						console.log(jsonMembers.members[i].nickname)
+						console.log(jsonMembers.members[i].nickname) */
+						
+						html_out += "<tr>";
+						html_out += "	<td>"+jsonMembers.members[i].name +"</td>";
+						html_out += "	<td>"+jsonMembers.members[i].age + "</td>";
+						html_out += "	<td>"+jsonMembers.members[i].gender + "</td>";
+						html_out += "	<td>"+jsonMembers.members[i].nickname + "</td>";
+						html_out += "</tr>";
 						
 					}// outer for
-
+					
+					html_out +=`
+						  </tbody>
+						</table >
+					`;
+					
+					console.log(html_out);
+					$('#output').html(html_out);
 					
 				},
 				error: function(){ alert('에러 발생')},
